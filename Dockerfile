@@ -27,6 +27,13 @@ RUN gem install licensee && \
     ln -s /opt/rubies/ruby-2.5.1/bin/licensee /usr/bin/licensee
 RUN which licensee
 
+##### satscan application for scanstatistics r pkg
+
+WORKDIR /
+COPY install-9.6_linux.jar .
+RUN printf '1\n1\n\nO\n1\nN\nN\nN\nY\n\n'  | java -jar install-9.6_linux.jar
+
+
 EXPOSE 8787
 
 CMD ["/lib/systemd/systemd"]
